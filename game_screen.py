@@ -31,7 +31,10 @@ def game_screen(window):
             if event.type == pygame.MOUSEBUTTONUP:
                 for foto in lista_de_imagens:
                     if foto.rect.collidepoint(event.pos):
-                        print('oi')
+                        foto.kill()
+                        chiuaua= ChihuahuaOrMuffin(dicionario_de_arquivos)
+                        lista_de_imagens.add(chiuaua)
+                        
             
         # ----- Gera saídas
         window.fill(BLACK)  # Preenche com a cor branca
