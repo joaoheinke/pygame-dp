@@ -11,21 +11,28 @@ def game_screen(window):
     DONE = 0
     PLAYING = 1
     state = PLAYING
-
+    
     lista_de_imagens= pygame.sprite.Group()
-    chiuaua= ChihuahuaOrMuffin(dicionario_de_arquivos)
-    lista_de_imagens.add(chiuaua)
+    for i in range(5):
+
+        chiuaua= ChihuahuaOrMuffin(dicionario_de_arquivos)
+        lista_de_imagens.add(chiuaua)
 
     # ===== Loop principal =====
     while state != DONE:
         clock.tick(FPS)
 
-        # ----- Trata eventos
+            
+            # ----- Trata eventos
         for event in pygame.event.get():
             # ----- Verifica consequências
             if event.type == pygame.QUIT:
                 state = DONE
-
+            if event.type == pygame.MOUSEBUTTONUP:
+                for foto in lista_de_imagens:
+                    if foto.rect.collidepoint(event.pos):
+                        print('oi')
+            
         # ----- Gera saídas
         window.fill(BLACK)  # Preenche com a cor branca
         lista_de_imagens.update()

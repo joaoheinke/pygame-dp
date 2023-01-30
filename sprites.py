@@ -7,8 +7,8 @@ class ChihuahuaOrMuffin(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         sorteio= random.randint(0,1)
-        sorteio_Chiuaua= random.randint(0,len(dicionario_de_arquivos['Chihuahua']))
-        sorteio_Muffin= random.randint(0,len(dicionario_de_arquivos['Muffin']))
+        sorteio_Chiuaua= random.randint(0,len(dicionario_de_arquivos['Chihuahua'])-1)
+        sorteio_Muffin= random.randint(0,len(dicionario_de_arquivos['Muffin'])-1)
 
         if sorteio == 0:
             self.image = dicionario_de_arquivos['Chihuahua'][sorteio_Chiuaua]
