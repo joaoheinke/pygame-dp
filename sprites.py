@@ -1,18 +1,30 @@
 import pygame
+import random
 
 class ChihuahuaOrMuffin(pygame.sprite.Sprite):
     def __init__(self, dicionario_de_arquivos):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = # carregue a imagem
+        sorteio= random.randint(0,1)
+        sorteio_Chiuaua= random.randint(0,len(dicionario_de_arquivos['Chihuahua']))
+        sorteio_Muffin= random.randint(0,len(dicionario_de_arquivos['Muffin']))
+
+        if sorteio == 0:
+            self.image = dicionario_de_arquivos['Chihuahua'][sorteio_Chiuaua]
+            self.chiuaua= True
+        else:
+            self.image= dicionario_de_arquivos['Muffin'][sorteio_Muffin]
+            self.chiuaua= False
+        
         self.rect = self.image.get_rect()
-        self.rect.x = # Define posicao em x
-        self.rect.y = # define posicao em y
+        self.rect.x = random.randint(0,700-80)
+        self.rect.y = random.randint(-100,-80)
 
-    # def update(self):
-        # Atualização da posição da nave
-
+    def update(self):
+        self.rect.y+=2
+        
+        
 class Botao(pygame.sprite.Sprite):
     def __init__(self, assets, nome_do_jogo):
         # Construtor da classe mãe (Sprite).
