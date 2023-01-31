@@ -20,8 +20,11 @@ def game_screen(window):
 
     # ===== Loop principal =====
     while state != DONE:
+        pontos=0
+        font = pygame.font.SysFont(None, 80)
+        text = font.render(f'PONTOS: {pontos} ', True, (0, 0, 255))
         clock.tick(FPS)
-
+        window.blit(text, (10,10))
             
             # ----- Trata eventos
         for event in pygame.event.get():
@@ -34,6 +37,15 @@ def game_screen(window):
                         foto.kill()
                         chiuaua= ChihuahuaOrMuffin(dicionario_de_arquivos)
                         lista_de_imagens.add(chiuaua)
+                        if foto in dicionario_de_arquivos['Chihuahua']:
+                            pontos+=1
+                        else:
+                            chiuaua= ChihuahuaOrMuffin(dicionario_de_arquivos)
+                            lista_de_imagens.add(chiuaua)
+
+
+
+
                         
             
         # ----- Gera saídas
